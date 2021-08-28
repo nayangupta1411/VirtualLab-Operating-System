@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vlab</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+         }
+         body{
+         	background-color: #ffffcc;
+
+         }
+         .heading{
+         	background-color: #1a1a00;
+         	text-align: center;
+         	font-size: 40px;
+         	color:white;
+           text-shadow: 4px 4px 7px #000000; 
+           box-shadow: 2px 2px 4px #000000;
+
+           }
+       
+
+        #sidebar{
+        	background-color:transparent;
+        
+        	width: 20%;
+        	text-align: center; 
+            left:0px;
+            position: absolute;
+            transition: all .4s ease;
+        }
+        ul li{
+        	list-style-type: none;
+               text-decoration: none;
+        }
+        #sidebar ul a{
+            display: block;
+            text-decoration: none;
+            color:white;
+            box-sizing: border-box;
+           
+          background-color:#1a1a00;
+           font-size: 20px;
+           border-top: 1px solid white;
+           border-bottom: 2px solid black;
+           line-height: 330%;
+           border-radius: 5px;
+           transition: all .4s ease;
+        } 
+          #sidebar ul a:hover{
+            border-color: #e6e600;
+            background-color: #999900;
+            box-sizing: 30px;
+            padding:2px;
+            text-decoration-style:wavy;
+             text-shadow: 2px 2px 4px #000000; 
+        }
+        #check{
+            display:none;
+        }
+        lable #btn,lable #cancel{
+                  position:absolute;
+                  cursor: pointer;
+        }
+        lable #btn{
+            left:5%;
+            text-shadow: 0 0 3px #ffffff; 
+        }
+        lable #cancel{
+            left:190px;
+            z-index: 1111;
+        }
+        #sidebar.active{
+            left:-2000px;
+        }
+
+       
+        #about{
+              box-sizing: border-box;
+            background-color: #554400;
+            margin-top: 8%;
+            color:white;
+            width:80%;
+            float:right;
+          transition: all 0.4s ease;
+            margin-right: 0px;
+
+        }
+         #about.active{
+            width:100%;
+         }
+        
+         
+          #pre_test{
+               box-sizing: border-box;
+            background-color:#554400;
+           
+           color:black;
+            width:80%;
+            float:right;
+             transition: all 0.4s ease;
+        
+           scroll-behavior: smooth;
+          }
+           #pre_test.active{
+                   width:100%;
+           }
+            #height11{
+                max-height: 490px;
+                overflow: auto;
+            }
+             #First_Fit{
+             box-sizing: border-box;
+            background-color: #554400;
+           
+           color:black;
+            width:80%;
+            float:right;
+            transition: all 0.4s ease;
+           scroll-behavior: smooth;
+
+          }
+          #First_Fit.active{
+                width:100%;
+          }
+             .simulator{
+             box-sizing: border-box;
+             border: 2px solid black;
+             width:100%;
+             height: 500px;
+
+             
+          }
+          .main_box{
+             box-sizing: border-box;
+             border: 5px solid black;
+             width:17%;
+             height: 365px;
+            
+             position: absolute;
+            
+          }
+          .fill_box1{
+              box-sizing: border-box;
+             border: 3px solid black;
+             width:100%;
+             height: 15%;
+              
+              left: -2px;
+             background-color: #554400;
+          }
+          .fill_box2{
+             box-sizing: border-box;
+             border: 3px solid black;
+             width:100%;
+             height: 15%;
+              margin-top: 20%;
+              left: -2px;
+              background-color: #554400;
+          }
+          .fill_box3{
+             box-sizing: border-box;
+             border: 3px solid black;
+             width:100%;
+             height: 15%;
+             left: -2px;
+              margin-top: 20%;
+              padding-bottom: 15%;
+              background-color: #554400;
+          }
+          #demo1{
+            opacity: 1;
+            top:0px;
+             color:white;
+             text-align: center;
+             font-size: 150%;
+
+          }
+          #demo{
+            opacity: 1;
+            top:0px;
+             color:white;
+             text-align: center;
+             font-size: 150%;
+          }
+          #demo.active{
+            opacity: 0;
+             transition-delay: 3s;
+             color:white;
+             text-align: center;
+             font-size: 150%;
+          }
+          #text_1{
+            opacity: 0;
+            color:white;
+             text-align: center;
+             font-size: 150%;
+          }
+          #text_1.active{
+            opacity: 1;
+             transition-delay: 3s;
+              margin-top: -25%;
+             color:white;
+             text-align: center;
+             font-size: 150%;
+
+          }
+           #demoA{
+            opacity: 1;
+            color:white;
+             text-align: center;
+             font-size: 150%;
+          }
+          #demoA.active{
+            opacity: 0;
+             transition-delay: 3s;
+             color:white;
+             text-align: center;
+             font-size: 150%;
+          }
+          #text_2{
+            opacity: 0;
+            color:white;
+             text-align: center;
+             font-size: 150%;
+          }
+          #text_2.active{
+            opacity: 1;
+             transition-delay: 3s;
+             margin-top: -25%;
+             color:white;
+             text-align: center;
+             font-size: 150%;
+
+          }
+          #demoB{
+            opacity: 1;
+            color:white;
+             text-align: center;
+             font-size: 150%;
+          }
+          #demoB.active{
+            opacity: 0;
+             transition-delay: 3s;
+             color:white;
+             text-align: center;
+             font-size: 150%;
+          }
+          #text_3{
+            opacity: 0;
+            color:white;
+             text-align: center;
+             font-size: 150%;
+          }
+          #text_3.active{
+            opacity: 1;
+             transition-delay: 3s;
+             margin-top: -25%;
+             color:white;
+             text-align: center;
+             font-size: 150%;
+
+          }
+
+
+          #fill_box21{
+              box-sizing: border-box;
+             border: 3px solid black;
+             width:100%;
+             height: 15%;
+             left: 0px;
+             top:205px;
+              margin-top: 20%;
+              padding-bottom: 15%;
+              background-color: gray;
+              position: absolute;
+              opacity: 1;
+
+          }
+        #fill_box21.active{
+            opacity: 1;
+            transition-delay: 3s;
+            background-color: blue
+          }
+
+          #fill_box31{
+             box-sizing: border-box;
+             border: 3px solid black;
+             width:100%;
+             height: 15%;
+             left: 0px;
+             top:1.8px;
+              margin-top: 20%;
+              padding-bottom: 15%;
+              background-color: gray;
+              position: absolute;
+              opacity: 1;
+          }
+          #fill_box31.active{
+            opacity: 1;
+            transition-delay: 3s;
+            background-color: blue
+          }
+           #fill_box41{
+             box-sizing: border-box;
+             border: 3px solid black;
+             width:100%;
+             height: 15%;
+             margin-top: 20%;
+              left: 0px;
+              top:105px;
+              padding-bottom: 0%;
+               background-color: gray;
+                 position: absolute;
+          }
+          #fill_box41.active{
+            opacity: 1;
+            transition-delay: 3s;
+            background-color: blue
+          }
+          
+       
+          .fill_box4{
+             box-sizing: border-box;
+             border: 3px solid black;
+             width:100%;
+             height: 15%;
+             margin-top: 23%;
+              left: -2px;
+              top:140px;
+              padding-bottom: 0%;
+               background-color: #554400;
+          }
+          .main_box1{
+                 box-sizing: border-box;
+             border: 5px solid black;
+             width:17%;
+             height: 350px;
+             left:45%;
+             position: absolute;
+          }
+          #fill_boxx3{
+                 box-sizing: border-box;
+             border: 3px solid black;
+             width:100%;
+             height: 15%;
+             left: -2px;
+              margin-top: 120px;
+              padding-bottom: 15px;
+              background-color: blue;
+              
+             
+          }
+           #fill_boxx3.active{
+              background-color:red;
+              margin-top: 60px;
+           }
+           #fill_boxx3.active1{
+            width:100%;
+             height: 15%;
+              margin-top: 20%;
+              margin-left: -150%;
+             transition-delay:1s;
+             opacity: 0;
+             
+           }
+           #content_box{
+             box-sizing: border-box;
+             border: 5px solid black;
+             width:20%;
+             height: 350px;
+             left:75%;
+             position: absolute;
+             opacity: 0;
+             margin-top: 40px;
+
+           }
+            #content_box.active{
+                opacity: 1;
+            }
+           #tt1{
+            background-color: blue;
+            font-size: 80%;
+             width:20%;
+             height: 350px;
+             left:75%;
+             color:white;
+           }
+        #Best_Fit{
+             box-sizing: border-box;
+            background-color: #554400;
+           
+           color:black;
+            width:80%;
+            float:right;
+            transition: all 0.4s ease;
+           scroll-behavior: smooth;
+
+          }
+          #Best_Fit.active{
+                width:100%;
+          }
+             #fill_box212{
+              box-sizing: border-box;
+             border: 3px solid black;
+             width:100%;
+             height: 15%;
+             left: 0px;
+             top:205px;
+              margin-top: 20%;
+              padding-bottom: 15%;
+              background-color: gray;
+              position: absolute;
+              opacity: 1;
+
+          }
+        #fill_box212.active{
+            opacity: 1;
+            transition-delay: 3s;
+            background-color: blue
+          }
+
+          #fill_box312{
+             box-sizing: border-box;
+             border: 3px solid black;
+             width:100%;
+             height: 15%;
+             left: 0px;
+             top:1.8px;
+              margin-top: 20%;
+              padding-bottom: 15%;
+              background-color: gray;
+              position: absolute;
+              opacity: 1;
+          }
+          #fill_box312.active{
+            opacity: 1;
+            transition-delay: 3s;
+            background-color: blue
+          }
+           #fill_box412{
+             box-sizing: border-box;
+             border: 3px solid black;
+             width:100%;
+             height: 15%;
+             margin-top: 20%;
+              left: 0px;
+              top:105px;
+              padding-bottom: 0%;
+               background-color: gray;
+                 position: absolute;
+          }
+          #fill_box412.active{
+            opacity: 1;
+            transition-delay: 3s;
+            background-color: blue
+          }
+           #content_box2{
+             box-sizing: border-box;
+             border: 5px solid black;
+             width:20%;
+             height: 350px;
+             left:75%;
+             position: absolute;
+             opacity: 0;
+             margin-top: 40px;
+
+           }
+            #content_box2.active{
+                opacity: 1;
+            }
+            #tt12{
+            background-color: blue;
+            font-size: 80%;
+             width:20%;
+             height: 350px;
+             left:75%;
+             color:white;
+           }
+             #fill_boxx32{
+                 box-sizing: border-box;
+             border: 3px solid black;
+             width:100%;
+             height: 15%;
+             left: -2px;
+              margin-top: 120px;
+              padding-bottom: 15px;
+              background-color: blue;
+              
+             
+          }
+           #fill_boxx32.active{
+              background-color:red;
+              margin-top: 60px;
+           }
+           #fill_boxx32.active1{
+            width:100%;
+             height: 15%;
+              margin-top: 20%;
+              margin-left: -150%;
+             transition-delay:1s;
+             opacity: 0;
+             
+           }
+
+
+	</style>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/all.css">
+    <script>
+    var divs = ["about", "pre_test", "First_Fit", "Best_Fit"];
+    var visibleDivId = null;
+    function toggleVisibility(divId) {
+      if(visibleDivId === divId) {
+        visibleDivId = null;
+      } else {
+        visibleDivId = divId;
+      }
+      hideNonVisibleDivs();
+    }
+    function hideNonVisibleDivs() {
+      var i, divId, div;
+      for(i = 0; i < divs.length; i++) {
+        divId = divs[i];
+        div = document.getElementById(divId);
+        if(visibleDivId === divId) {
+          div.style.display = "block";
+        } else {
+          div.style.display = "none";
+        }
+      }
+    }
+   
+
+</script>
+    	
+</head>
+<body class="container-fuild">
+ <div class="container-fuild p-2 mt-3 col-auto heading">
+    <input type="checkbox" id="check">
+    <lable for="check">
+ 	<i class='fas fa-align-justify p-2 ' id="btn" onclick="toggle();"></i>
+   
+ </lable>
+ <div class="container">
+ 	Implementation of contiguous allocation techniques</div>
+    </div>
+   <div id="sidebar" class="container-fuild px-2 py-3 mt-1  ">
+ <ul>
+    <li> <a href="#" onclick="toggleVisibility('about'); ">About</a></li>
+    <li><a href="#" onclick="toggleVisibility('pre_test');"> Pre-Test</a></li>
+    <li><a href="#" onclick="toggleVisibility('First_Fit');">First Fit</a></li>
+    <li><a href="#" onclick="toggleVisibility('Best_Fit');">Best Fit</a></li>
+    <li><a href="#">Worst Fit</a></li>
+    <li><a href="#">Analysis</a></li>
+    <li><a href="#">Post-Test</a> </li>
+ </ul>
+</div>
+
+<div id="content">
+  <div id="about"  class="container-fuild mt-4 pl-3" style="display: none;">
+    <div id="height11">
+    <p>For both fixed and dynamic memory allocation schemes, the operating system must keep list of each memory location noting which are free and which are busy. Then as new jobs come into the system, the free partitions must be allocated.</p>
+<p>These partitions may be allocated by 4 ways:</p>
+<p>1. First-Fit Memory Allocation</p>
+<p>2. Best-Fit Memory Allocation</p>
+<p>3. Worst-Fit Memory Allocation</p>
+
+<h2> First-Fit Memory Allocation:</h2>
+<p> This method keeps the free/busy list of jobs organized by memory location, low-ordered to high-ordered memory. In this method, first job claims the first available memory with space more than or equal to it’s size. The operating system doesn’t search for appropriate partition but just allocate the job to the nearest memory partition available with sufficient size.</p>
+<p>As illustrated above, the system assigns J1 the nearest partition in the memory. As a result, there is no partition with sufficient space is available for J3 and it is placed in the waiting list.</p>
+<h3>Advantages of First-Fit Memory Allocation:</h3>
+<p>It is fast in processing. As the processor allocates the nearest available memory partition to the job, it is very fast in execution.</p>
+<h3>Disadvantages of Fist-Fit Memory Allocation :</h3>
+<p>It wastes a lot of memory. The processor ignores if the size of partition allocated to the job is very large as compared to the size of job or not. It just allocates the memory. As a result, a lot of memory is wasted and many jobs may not get space in the memory, and would have to wait for another job to complete.</p>
+<h2>Best-Fit Memory Allocation:</h2>
+<p>The best fit deals with allocating the smallest free partition which meets the requirement of the requesting process. This algorithm first searches the entire list of free partitions and considers the smallest hole that is adequate. It then tries to find a hole which is close to actual process size needed.</p>
+<h3>Advantage</h3>
+<p>Memory utilization is much better than first fit as it searches the smallest free partition first available.</p>
+<h3>Disadvantage</h3>
+<p>It is slower and may even tend to fill up memory with tiny useless holes.</p>
+<h2>Worst-Fit Memory Allocation :</h2>
+<p>In worst fit approach is to locate largest available free portion so that the portion left will be big enough to be useful. It is the reverse of best fit.</p>
+<h3>Advantage</h3>
+<p>Reduces the rate of production of small gaps.</p>
+<h3>Disadvantage</h3>
+<p>If a process requiring larger memory arrives at a later stage then it cannot be accommodated as the largest hole is already split and occupied</p>
+
+</div>
+ </div>
+ <div id="pre_test"  class="container-fuild mt-4 pl-3" style="display: none;">
+     <div id="height11">
+    <p>For both fixed and dynamic memory allocation schemes, the operating system must keep list of each memory location noting which are free and which are busy. Then as new jobs come into the system, the free partitions must be allocated.</p>
+<p>These partitions may be allocated by 4 ways:</p>
+<p>1. First-Fit Memory Allocation</p>
+<p>2. Best-Fit Memory Allocation</p>
+<p>3. Worst-Fit Memory Allocation</p>
+
+<h2> First-Fit Memory Allocation:</h2>
+<p> This method keeps the free/busy list of jobs organized by memory location, low-ordered to high-ordered memory. In this method, first job claims the first available memory with space more than or equal to it’s size. The operating system doesn’t search for appropriate partition but just allocate the job to the nearest memory partition available with sufficient size.</p>
+<p>As illustrated above, the system assigns J1 the nearest partition in the memory. As a result, there is no partition with sufficient space is available for J3 and it is placed in the waiting list.</p>
+<h3>Advantages of First-Fit Memory Allocation:</h3>
+<p>It is fast in processing. As the processor allocates the nearest available memory partition to the job, it is very fast in execution.</p>
+<h3>Disadvantages of Fist-Fit Memory Allocation :</h3>
+<p>It wastes a lot of memory. The processor ignores if the size of partition allocated to the job is very large as compared to the size of job or not. It just allocates the memory. As a result, a lot of memory is wasted and many jobs may not get space in the memory, and would have to wait for another job to complete.</p>
+<h2>Best-Fit Memory Allocation:</h2>
+<p>The best fit deals with allocating the smallest free partition which meets the requirement of the requesting process. This algorithm first searches the entire list of free partitions and considers the smallest hole that is adequate. It then tries to find a hole which is close to actual process size needed.</p>
+<h3>Advantage</h3>
+<p>Memory utilization is much better than first fit as it searches the smallest free partition first available.</p>
+<h3>Disadvantage</h3>
+<p>It is slower and may even tend to fill up memory with tiny useless holes.</p>
+<h2>Worst-Fit Memory Allocation :</h2>
+<p>In worst fit approach is to locate largest available free portion so that the portion left will be big enough to be useful. It is the reverse of best fit.</p>
+<h3>Advantage</h3>
+<p>Reduces the rate of production of small gaps.</p>
+<h3>Disadvantage</h3>
+<p>If a process requiring larger memory arrives at a later stage then it cannot be accommodated as the largest hole is already split and occupied</p>
+
+</div>
+
+ </div>
+ <div id="First_Fit" class="container-fuild mt-4 px-3" style="display: none;"> 
+ 
+    <div class="container-fuild col-m-12 simulator " >
+     <label name="Blocks">
+      <div class="container-fuild mt-5 ml-5 col-m-2 main_box">
+         <div class="container-fuild  fill_box1 ">
+            <p style="text-align: center;font-size:150%;color:white;letter-spacing: 5%;font-weight: bold;">FULL</p>
+         </div>
+         <div class="container-fuild my-5 fill_box2 ">
+            <p style="text-align: center;font-size:150%;color:white;letter-spacing: 5%;font-weight: bold;">FULL</p>
+         </div>
+         <div class="container-fuild my-5 " id="fill_box21">
+             <p id="demoB">
+                 <p id="text_3"></p>
+            </p>
+         </div>
+         <div class="container-fuild my-5 fill_box3">
+            <p style="text-align: center;font-size:150%;color:white;letter-spacing: 5%;font-weight: bold;">FULL</p>
+         </div>
+          <div class="container-fuild my-5 " id="fill_box31">
+            <p id="demo">
+                    <p id="text_1"></p>
+            </p>
+        
+         </div>
+           <div class="container-fuild mt-5 " id="fill_box41">
+            <p id="demoA">
+                 <p id="text_2"></p>
+            </p>
+           
+         </div>
+
+         <div class="container-fuild mt-5 fill_box4">
+            <p style="text-align: center;font-size:150%;color:white;letter-spacing: 5%;font-weight: bold;">FULL</p>
+         </div>
+     </div>
+   </label>   
+     <div class="container-fuild mt-5 ml-5  col-m-6 main_box1">
+        <div  id="fill_boxx3">
+             <p id="demo1"></p>
+         </div>
+     </div> 
+     <div id="content_box" class="container-fuild col-m-6">
+         <span id="tt1" class="container-fuild ">
+            <h1 style="text-align: center;">Process</h1>
+            <p>1. Input memory blocks with size and processes with size.<p>
+<p>2. Initialize all memory blocks as free.</p>
+<p>3. Start by picking each process and check if it can
+   be assigned to current block. </p>
+   <p>4. If size-of-process <= size-of-block if yes then 
+   assign and check for next process.</p>
+   <p>5. If size-of-process >= size-of-block if yes then no assign</p>
+</span>
+     </div>
+       <button onclick="move();">click</button>
+       <button onclick="movet();"><a href="index.html">refresh</a></button>
+
+   </div>
+ 
+</div>
+<div id="Best_Fit" class="container-fuild mt-4 pl-3" style="display: none;">
+    <div class="container-fuild col-m-12 simulator " >
+     <label name="Blocks">
+      <div class="container-fuild mt-5 ml-5 col-m-2 main_box">
+         <div class="container-fuild  fill_box1 ">
+            <p style="text-align: center;font-size:150%;color:white;letter-spacing: 5%;font-weight: bold;">FULL</p>
+         </div>
+         <div class="container-fuild my-5 fill_box2 ">
+            <p style="text-align: center;font-size:150%;color:white;letter-spacing: 5%;font-weight: bold;">FULL</p>
+         </div>
+         <div class="container-fuild my-5 " id="fill_box212">
+             <p id="demoB2">
+                 <p id="text_32"></p>
+            </p>
+         </div>
+         <div class="container-fuild my-5 fill_box3">
+            <p style="text-align: center;font-size:150%;color:white;letter-spacing: 5%;font-weight: bold;">FULL</p>
+         </div>
+          <div class="container-fuild my-5 " id="fill_box312">
+            <p id="demo22">
+                    <p id="text_12"></p>
+            </p>
+        
+         </div>
+           <div class="container-fuild mt-5 " id="fill_box412">
+            <p id="demoA2">
+                 <p id="text_22"></p>
+            </p>
+           
+         </div>
+
+         <div class="container-fuild mt-5 fill_box4">
+            <p style="text-align: center;font-size:150%;color:white;letter-spacing: 5%;font-weight: bold;">FULL</p>
+         </div>
+     </div>
+   </label>   
+     <div class="container-fuild mt-5 ml-5  col-m-6 main_box1">
+        <div  id="fill_boxx32">
+             <p id="demo12"></p>
+         </div>
+     </div> 
+     <div id="content_box2" class="container-fuild col-m-6">
+         <span id="tt12" class="container-fuild ">
+            <h1 style="text-align: center;">Process</h1>
+            <p>1. Input memory blocks with size and processes with size.<p>
+<p>2. Initialize all memory blocks as free.</p>
+<p>3. Start by picking each process and check if it can
+   be assigned to current block. </p>
+   <p>4. If size-of-process <= size-of-block if yes then 
+   assign and check for next process.</p>
+   <p>5. If size-of-process >= size-of-block if yes then no assign</p>
+</span>
+     </div>
+       <button onclick="moveB();">click</button>
+       <button onclick="movet();"><a href="index.html">refresh</a></button>
+
+   </div>
+ 
+</div>
+</div>
+<script type="text/javascript" >
+function toggle(){
+    document.getElementById("sidebar").classList.toggle('active');
+     document.getElementById("about").classList.toggle('active');
+     document.getElementById("pre_test").classList.toggle('active');
+      document.getElementById("First_Fit").classList.toggle('active');
+      document.getElementById("Best_Fit").classList.toggle('active');
+ }
+
+  
+
+
+function move(){
+    var a=Math.floor(Math.random()*10);
+    var b=Math.floor(Math.random()*10);
+    var c=Math.floor(Math.random()*10);
+    var d=Math.floor(Math.random()*10);
+    document.getElementById("demo").innerHTML =a+" " +"MB";
+    document.getElementById("demo1").innerHTML = b+" " +"MB";
+    document.getElementById("demoA").innerHTML = c+" " +"MB";
+    document.getElementById("demoB").innerHTML = d+" " +"MB";
+    var x=document.getElementById("demo").innerHTML;
+    var y=document.getElementById("demo1").innerHTML;
+     var z=document.getElementById("demoA").innerHTML;
+     var t=document.getElementById("demoB").innerHTML;
+
+    document.getElementById("content_box").classList.toggle('active');
+      if(x>=y ){
+           document.getElementById("text_1").innerHTML=y;
+          
+          move1();
+      }
+      else if (x<=y && z>=y ){
+         document.getElementById("text_2").innerHTML=y;
+          
+          move3();
+
+      }
+      else if(x<=y && z<=y && t>=y){
+        document.getElementById("text_3").innerHTML=y;
+          
+          move5();
+
+      }
+    
+ }
+ function moveB(){
+    var a2=Math.floor(Math.random()*10);
+    var b2=Math.floor(Math.random()*10);
+    var c2=Math.floor(Math.random()*10);
+    var d2=Math.floor(Math.random()*10);
+    document.getElementById("demo22").innerHTML =a2+" " +"MB";
+    document.getElementById("demo12").innerHTML = b2+" " +"MB";
+    document.getElementById("demoA2").innerHTML = c2+" " +"MB";
+    document.getElementById("demoB2").innerHTML = d2+" " +"MB";
+    var x2=document.getElementById("demo22").innerHTML;
+    var y2=document.getElementById("demo12").innerHTML;
+     var z2=document.getElementById("demoA2").innerHTML;
+     var t2=document.getElementById("demoB2").innerHTML;
+
+    document.getElementById("content_box2").classList.toggle('active');
+      if(x2>=y2 ){
+           document.getElementById("text_12").innerHTML=y2;
+          
+          move12();
+      }
+      else if (x2<=y2 && z2>=y2 ){
+         document.getElementById("text_22").innerHTML=y2;
+          
+          move32();
+
+      }
+      else if(x2<=y2 && z2<=y2 && t2>=y2){
+        document.getElementById("text_32").innerHTML=y2;
+          
+          move52();
+
+      }
+    
+ }
+  function move1(){
+   document.getElementById("demo").classList.toggle('active');
+   document.getElementById("text_1").classList.toggle('active');
+    document.getElementById("fill_boxx3").classList.toggle('active1');
+   move2();
+  }
+   function move2(){
+    document.getElementById("fill_box31").classList.toggle('active');
+   }
+   function move3(){
+    document.getElementById("demoA").classList.toggle('active');
+     document.getElementById("text_2").classList.toggle('active');
+    document.getElementById("fill_boxx3").classList.toggle('active1');
+   move4();
+
+   }
+   function move4(){
+     document.getElementById("fill_box41").classList.toggle('active');
+   }
+   function move5(){
+     document.getElementById("demoB").classList.toggle('active');
+     document.getElementById("text_3").classList.toggle('active');
+    document.getElementById("fill_boxx3").classList.toggle('active1');
+   move6();
+   }
+  function move6(){
+     document.getElementById("fill_box21").classList.toggle('active');
+   }
+
+   /////////////////////////////////////////////////////////////////
+
+   function move12(){
+   document.getElementById("demo22").classList.toggle('active');
+   document.getElementById("text_12").classList.toggle('active');
+    document.getElementById("fill_boxx32").classList.toggle('active1');
+   move22();
+  }
+   function move22(){
+    document.getElementById("fill_box312").classList.toggle('active');
+   }
+   function move32(){
+    document.getElementById("demoA2").classList.toggle('active');
+     document.getElementById("text_22").classList.toggle('active');
+    document.getElementById("fill_boxx32").classList.toggle('active1');
+   move42();
+
+   }
+   function move42(){
+     document.getElementById("fill_box412").classList.toggle('active');
+   }
+   function move52(){
+     document.getElementById("demoB2").classList.toggle('active');
+     document.getElementById("text_32").classList.toggle('active');
+    document.getElementById("fill_boxx32").classList.toggle('active1');
+   move62();
+   }
+  function move62(){
+     document.getElementById("fill_box212").classList.toggle('active');
+   }
+    
+</script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+</body>
+</html>
